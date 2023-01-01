@@ -1,0 +1,9 @@
+had to enable the following services to fix critical bugs:
+- dbus
+- elogind
+- acpid
+
+had to enable the following services as a matter of preference:
+- iwd
+- bluetooth
+(problably assume they should be enabled if installed)

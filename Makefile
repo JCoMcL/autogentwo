@@ -32,6 +32,7 @@ etc/portage/make.conf/00-mirrorselect.conf:
 /mnt/gentoo: \
 	/mnt/gentoo/etc/portage/ \
 	/mnt/gentoo/etc/kernel/ \
+	scripts/templ.sh templates/root-device.config.templ > /mnt/gentoo/etc/kernel/root-device.config #TODO, template invocation should be automatic
 	/mnt/gentoo/etc/resolv.conf \
 	/mnt/gentoo/var/lib/portage/world \
 	/mnt/gentoo/etc/dracut.conf.d \
