@@ -1,0 +1,3 @@
+sys-kernel/installkernel efistub dracut uki
+sys-kernel/gentoo-kernel savedconfig
+sys-apps/systemd-utils boot kernel-install

@@ -1,0 +1,17 @@
+*.raw
+*.cow
+*.sock
+*.raw
+*.cow
+*.sock
+*.iso
+*.tar.xz
+*.tar.xz.asc
+*.tar.xz.sha256
+.*.kak.*
+*.lock
+*.pid
+*.fd
+*.xz
+*.img
+

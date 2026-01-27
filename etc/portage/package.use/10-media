@@ -1,0 +1,11 @@
+# there are 4 different av1 implementations availalbe to ffmpeg, I ended up choosing libaom Because the use flags indicate it has finer-tuned support for my hardware and also it mya be the only one which handles encoding and decoding. I would like a better way to do this in future without having to have opinions about which codec implemenation to use.
+
+*/* jpeg
+media-*/* ffmpeg id3tag mpg123 opus sbsms vamp corefonts ladspa djvu fontconfig fftw graphviz lqr truetype X amr amrenc alembic archive bluray cdio collada dvb dvd freeimage gme gif hdri heif icu jbig jpeg2k jpegxl lcms libaom libcaca mng openal openexr openpgl png postscript rubberband svg tiff tiff vorbis vpx webp wmf x265 xml xpm cairo lame chromaprint x264 sf2 rdf sndfile osc
+
+media-video/ffmpeg truetype fribidi libdrm lv2 vidstab -svg -chromaprint
+app-text/* cb djvu pdf postscript
+www-client/firefox openh264
+
+media-libs/gst-plugins-base -egl -gles2 -opengl -pango
+dev-python/pillow jpeg tiff truetype webp zlib openmp postscript readline

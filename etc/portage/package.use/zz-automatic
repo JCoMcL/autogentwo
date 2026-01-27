@@ -1,0 +1,45 @@
+
+# required by x11-libs/cairo-1.18.4-r1::gentoo[X]
+# required by x11-libs/gtk+-2.24.33-r3::gentoo
+# required by x11-themes/gtk-engines-adwaita-3.28-r1::gentoo
+>=x11-libs/libXrender-0.9.12 abi_x86_32
+# required by media-libs/libvorbis-1.3.7-r2::gentoo
+# required by media-video/ffmpeg-6.1.4::gentoo[vorbis]
+# required by @__auto_slot_operator_replace_installed__ (argument)
+>=media-libs/libogg-1.3.6 abi_x86_32
+# required by x11-libs/cairo-1.18.4-r1::gentoo
+# required by gnome-base/librsvg-2.60.0::gentoo
+# required by media-gfx/darktable-5.2.0::gentoo
+# required by @__auto_slot_operator_replace_installed__ (argument)
+>=media-libs/libpng-1.6.52 abi_x86_32
+# required by x11-libs/cairo-1.18.4-r1::gentoo[glib]
+# required by gnome-base/librsvg-2.60.0::gentoo
+# required by media-gfx/darktable-5.2.0::gentoo
+# required by @__auto_slot_operator_replace_installed__ (argument)
+>=dev-libs/glib-2.84.4 abi_x86_32
+# required by dev-libs/glib-2.84.4::gentoo
+# required by x11-libs/cairo-1.18.4-r1::gentoo[glib]
+# required by gnome-base/librsvg-2.60.0::gentoo
+# required by media-gfx/darktable-5.2.0::gentoo
+# required by @__auto_slot_operator_replace_installed__ (argument)
+>=dev-libs/libpcre2-10.47 abi_x86_32
+# required by x11-libs/cairo-1.18.4-r1::gentoo
+# required by gnome-base/librsvg-2.60.0::gentoo
+# required by media-gfx/darktable-5.2.0::gentoo
+# required by @__auto_slot_operator_replace_installed__ (argument)
+>=x11-libs/pixman-0.46.4 abi_x86_32
+# required by media-gfx/inkscape-1.4.2::gentoo
+# required by @__auto_slot_operator_replace_installed__ (argument)
+>=app-text/poppler-25.12.0 cairo
+# required by www-client/firefox-140.7.0::gentoo[system-libvpx]
+# required by @selected
+# required by @world (argument)
+>=media-libs/libvpx-1.15.2 postproc
+# required by net-print/hplip-3.25.6-r1::gentoo[snmp,-minimal]
+# required by @selected
+# required by @world (argument)
+>=net-analyzer/net-snmp-5.9.4-r3 python_single_target_python3_11
+# required by net-print/hplip-3.25.6-r1::gentoo[snmp,-minimal]
+# required by @selected
+# required by @world (argument)
+>=net-dns/avahi-0.9_rc2-r3 python_single_target_python3_11

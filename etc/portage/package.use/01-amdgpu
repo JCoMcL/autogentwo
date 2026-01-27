@@ -1,0 +1,18 @@
+*/* VIDEO_CARDS: radeon radeonsi
+*/* rocm vaapi vdpau opencl osl opengl glslang libpacebo amf rocm
+
+# ascertained with amdgpu-arch utility
+*/* -amdgpu_targets_*
+*/* amdgpu_targets_gfx1102 amdgpu_targets_gfx1103
+
+media-libs/mesa zink vulkan-overlay d3d9 xa
+sci-ml/ollama amd
+sci-ml/* -flash
+
+sys-apps/fwupd amdgpu fastboot uefi gnutls
+
+#vulkan
+*/* vulkan
+gui-libs/gtk -vulkan
+media-video/ffmpeg - vulkan
+media-video/mpv -vulkan

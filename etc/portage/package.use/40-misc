@@ -1,0 +1,6 @@
+media-libs/chromaprint tools
+media-sound/spotify-player debug -libnotify -media-control -pulseaudio -streaming
+net-print/* scanner
+
+dev-lang/ispc gpu
+media-libs/oidn apps

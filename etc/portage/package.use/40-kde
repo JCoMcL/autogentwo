@@ -1,0 +1,56 @@
+kde-*/* -acl -kwallet -keyring -legacy-wallet -policykit
+=dev-python/pyqt5-5.15.11 dbus multimedia printsupport svg
+=dev-qt/qtprintsupport-5.15.17 cups
+media-video/ffmpeg x264
+media-libs/opencv features2d contrib contribdnn
+
+# required by media-gfx/krita
+>=dev-python/pyqt5-5.15.11 gui python_targets_python3_11 widgets declarative network
+
+dev-qt/* icu
+
+media-video/ffmpeg sdl
+dev-qt/* -bluetooth -crypt -zstd
+
+# required by kde-frameworks/kio-6.18.0::gentoo
+# required by kde-frameworks/kcmutils-6.18.0::gentoo
+# required by kde-plasma/keditfiletype-6.4.5::gentoo
+# required by kde-frameworks/kio-6.19.1::gentoo
+# required by kde-plasma/kglobalacceld-6.4.5::gentoo
+# required by kde-frameworks/kglobalaccel-5.116.0-r2::gentoo
+# required by kde-frameworks/kxmlgui-5.116.0::gentoo
+# required by media-gfx/krita-5.2.13::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-qt/qtbase-6.9999 libproxy
+# required by kde-frameworks/kauth-6.18.0::gentoo
+# required by kde-frameworks/kio-6.18.0::gentoo
+# required by kde-frameworks/kcmutils-6.18.0::gentoo
+# required by kde-plasma/keditfiletype-6.4.5::gentoo
+# required by kde-frameworks/kio-6.19.1::gentoo
+# required by kde-plasma/kglobalacceld-6.4.5::gentoo
+# required by kde-frameworks/kglobalaccel-5.116.0-r2::gentoo
+# required by kde-frameworks/kxmlgui-5.116.0::gentoo
+# required by media-gfx/krita-5.2.13::gentoo
+# required by @selected
+# required by @world (argument)
+=kde-frameworks/kwindowsystem-6.18.0 wayland
+# required by kde-plasma/libplasma-6.4.5::gentoo
+# required by kde-plasma/polkit-kde-agent-6.4.5::gentoo
+# required by kde-frameworks/kauth-6.18.0::gentoo
+# required by kde-frameworks/kio-6.18.0::gentoo
+# required by kde-frameworks/kcmutils-6.18.0::gentoo
+# required by kde-plasma/keditfiletype-6.4.5::gentoo
+# required by kde-frameworks/kio-6.19.1::gentoo
+# required by kde-plasma/kglobalacceld-6.4.5::gentoo
+# required by kde-frameworks/kglobalaccel-5.116.0-r2::gentoo
+# required by kde-frameworks/kxmlgui-5.116.0::gentoo
+# required by media-gfx/krita-5.2.13::gentoo
+# required by @selected
+# required by @world (argument)
+>=kde-frameworks/kconfig-6.19.0 qml
+# required by kde-frameworks/qqc2-desktop-style-6.18.0::gentoo
+# required by kde-apps/kdenlive-25.08.2-r1::gentoo
+# required by @selected
+# required by @world (argument)
+=kde-frameworks/sonnet-6.18.0 qml

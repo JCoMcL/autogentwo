@@ -1,0 +1,4 @@
+media-libs/gst-plugins-base -introspection
+gdev-vcs/git -doc -perl
+sys-apps/moreutils -doc
+
