@@ -2,7 +2,7 @@ GENTOO_ARCH=amd64
 
 etc: /etc/portage /etc/kernel
 	mkdir -p $@
-	rsync -r /etc/portage/ $@/portage || [ $$? -eq 23 ] # "ignore "Partial Transfer" (code: 23) errors, to be expected due to read access.
+	rsync --exclude-from=portage.exclude -r /etc/portage/ $@/portage
 	rsync -r /etc/kernel/ $@/kernel
 
 etc/portage/package.use/%: templates/%.templ
