@@ -5,13 +5,41 @@ etc: /etc/portage /etc/kernel
 	rsync --exclude-from=portage.exclude -r /etc/portage/ $@/portage
 	rsync -r /etc/kernel/ $@/kernel
 
+world: /var/lib/portage/world
+	cp /var/lib/portage/world $@
+
 etc/portage/package.use/%: templates/%.templ
 	scripts/templ.sh $< > $@
 
 etc/portage/make.conf/00-mirrorselect.conf:
 	mirrorselect -s3 -o > $@
 
-stage3.tar.xz: gentoo-gpg-keys
+/mnt/gentoo/etc: stage3.tar.xz
+	tar xpvf $< --xattrs-include='*.*' --numeric-owner -C /mnt/gentoo
+
+/mnt/gentoo/etc/%: etc/% /mnt/gentoo/etc
+	rsync -r $< $@
+
+/mnt/gentoo/var/lib/portage/world: world
+	cp $< $@
+
+/mnt/gentoo/etc/resolv.conf: /etc/resolv.conf
+	cp --no-target-directory --dereference $< $@
+
+/mnt/gentoo/etc/fstab:
+	genfstab -U /mnt/gentoo > $@
+
+/mnt/gentoo: \
+	/mnt/gentoo/etc/portage/ \
+	/mnt/gentoo/etc/kernel/ \
+	/mnt/gentoo/etc/resolv.conf \
+	/mnt/gentoo/var/lib/portage/world \
+	/mnt/gentoo/etc/dracut.conf.d \
+	/mnt/gentoo/etc/fstab \
+	/mnt/gentoo/etc/ccache.conf \
+	/mnt/gentoo/etc/locale.gen
+
+stage.tar.xz: gentoo-gpg-keys
 	scripts/download-files.sh http://distfiles.gentoo.org/releases/$(GENTOO_ARCH)/autobuilds/current-stage3-$(GENTOO_ARCH)-openrc asc xz sha256
 	ls *.asc | grep -v *.tar.xz | xargs rm -f # remove any .asc files that don't have a corresponding .tar.xz file
 	gpg --verify stage3-$(GENTOO_ARCH)-openrc-*.tar.xz.asc
