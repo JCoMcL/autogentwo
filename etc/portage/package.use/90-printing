@@ -1,4 +1,4 @@
 net-print/* zeroconf
 net-print/cups usb
 inet-print/hplip hpijs scanner
-
+net-print/* scanner
