@@ -1,3 +1,4 @@
 media-gfx/ffmpeg -chromaprint
-media-libs/osl llvm_slot_18 -llvm_slot_20
->=media-gfx/blender-4.4.3 llvm_slot_19 -llvm_slot_18 -osl hip hiprt
+media-libs/osl LLVM_SLOT: -*
+media-gfx/blender -osl hip hiprt LLVM_SLOT: -* 19
+media-libs/freetype brotli

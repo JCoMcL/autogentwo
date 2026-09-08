@@ -10,3 +10,4 @@ media-sound/amsynth gtk
 
 */* lv2
 media-libs/lilv tools doc
+media-sound/fluidsynth ladspa

@@ -3,3 +3,9 @@ media-libs/chromaprint tools
 dev-lang/ispc gpu
 media-libs/oidn apps
 app-admin/pass dmenu
+x11-base/xorg-server xephyr
+*/* L10N: en
+app-alternatives/sh -bash dash
+app-shells/dash libedit
+
+sys-apps/util-linux caps

@@ -1,1 +1,158 @@
 
+# required by app-text/mupdf-1.26.3::gentoo
+# required by net-print/libcupsfilters-2.1.1::gentoo
+# required by @__auto_slot_operator_replace_installed__ (argument)
+=media-libs/harfbuzz-12.3.2 ~amd64
+# required by @__auto_slot_operator_replace_installed__ (argument)
+=sys-fs/mount-zip-1.0.15 ~amd64
+# required by @__auto_slot_operator_replace_installed__ (argument)
+=dev-games/godot-4.6.1 ~amd64
+# required by @__auto_slot_operator_replace_installed__ (argument)
+=media-video/obs-studio-32.0.4 ~amd64
+# required by @__auto_slot_operator_replace_installed__ (argument)
+=app-mobilephone/scrcpy-3.3.4 ~amd64
+# required by app-accessibility/at-spi2-core-2.56.5::gentoo
+# required by www-client/firefox-140.8.0::gentoo
+# required by @selected
+# required by @world (argument)
+=dev-libs/libxml2-9999 **
+# required by krita (argument)
+=media-gfx/krita-6.0.0_beta3-r1 ~amd64
+# required by carla (argument)
+=media-sound/carla-2.5.10 ~amd64
+# required by dev-util/sdl-jstest-0.2.2::gentoo
+# required by sdl-jstest (argument)
+=dev-build/tinycmmc-0.1.0 ~amd64
+# required by sdl-jstest (argument)
+=dev-util/sdl-jstest-0.2.2 ~amd64
+# required by hid-nintendo (argument)
+=games-util/hid-nintendo-9999 **
+# required by www-apps/radicale (argument)
+=www-apps/radicale-3.6.1-r1 ~amd64
+# required by dev-python/vdirsyncer-0.20.0::gentoo
+# required by dev-python/vdirsyncer (argument)
+=dev-python/click-log-0.4.0 ~amd64
+# required by dev-python/vdirsyncer-0.20.0::gentoo
+# required by dev-python/vdirsyncer (argument)
+=dev-python/aiohttp-oauthlib-0.1.0 ~amd64
+# required by dev-python/vdirsyncer-0.20.0::gentoo
+# required by dev-python/vdirsyncer (argument)
+=dev-python/aiostream-0.7.1 ~amd64
+# required by dev-python/vdirsyncer (argument)
+=dev-python/vdirsyncer-0.20.0 ~amd64
+# required by edir (argument)
+=app-misc/edir-2.35 ~amd64
+# required by app-misc/edir-2.35::jortage
+# required by edir (argument)
+=dev-python/argparse-from-file-1.7 ~amd64
+# required by songrec (argument)
+=media-sound/songrec-0.6.7 ~amd64
+# required by lingot (argument)
+=media-sound/lingot-1.1.1 ~amd64
+# required by umenu (argument)
+=app-misc/umenu-9999 ~amd64
+# required by @__auto_slot_operator_replace_installed__ (argument)
+=media-gfx/krita-6.0.1 ~amd64
+# required by odin (argument)
+=dev-lang/odin-2026.04 ~amd64
+# required by raylib (argument)
+=media-libs/raylib-5.5 ~amd64
+# required by =go-9999 (argument)
+=dev-lang/go-9999 **
+# required by =odin-2026.05 (argument)
+=dev-lang/odin-2026.05 ~amd64
+# required by =ols-9999 (argument)
+=dev-util/ols-9999 **
+# required by dev-util/ols-9999::guru
+# required by =ols-9999 (argument)
+=dev-lang/odin-9999 **
+# required by ~bcachefs-tools-1.37.4 (argument)
+=sys-fs/bcachefs-tools-1.37.4 ~amd64
+# required by =godot-4.6.3 (argument)
+=dev-games/godot-4.6.3 ~amd64
+# required by games-sandbox/vintagestory (argument)
+=games-sandbox/vintagestory-1.21.6 ~amd64
+app-misc/dragon ~amd64
+app-misc/lf ~amd64
+app-misc/pirate-get ~amd64
+app-shells/direnv ~amd64
+dev-util/gemini-cli ~amd64
+games-util/steam-launcher ~amd64
+media-video/obs-studio ~amd64
+media-video/syncplay ~amd64
+net-p2p/tremc ~amd64
+sys-process/gotop ~amd64
+www-apps/radicale ~amd64
+# required by =krita-6.0.2.1 (argument)
+=media-gfx/krita-6.0.2.1 ~amd64
+# required by dev-util/android-sdk-cmdline-tools (argument)
+=dev-util/android-sdk-cmdline-tools-0_p11076708 ~amd64
+# required by =odin-2026.07a (argument)
+=dev-lang/odin-2026.07a ~amd64
+# required by =raylib-6.0 (argument)
+=media-libs/raylib-6.0 ~amd64
+# required by wonderful-toolchain (argument)
+=dev-util/wonderful-toolchain-20260619 ~amd64
+# required by =dotnet-sdk-bin-9.0.308 (argument)
+=dev-dotnet/dotnet-sdk-bin-9.0.308 **
+# required by starsector (argument)
+=games-rpg/starsector-0.98a_rc8 ~amd64
+# required by media-libs/openvr (argument)
+=media-libs/openvr-1.23.8 ~amd64
+# required by dev-haskell/prettyprinter (argument)
+=dev-haskell/prettyprinter-1.7.1 ~amd64
+# required by scrcpy (argument)
+=app-mobilephone/scrcpy-4.1 ~amd64
+# required by arcan (argument)
+=media-libs/arcan-0.7.2 ~amd64
+# required by lua-language-server (argument)
+=dev-util/lua-language-server-3.18.2 ~amd64
+# required by =media-gfx/krita-6.0.3-r1 (argument)
+=media-gfx/krita-6.0.3-r1 ~amd64
+# required by minecraft-server (argument)
+=games-server/minecraft-server-26.2 ~amd64
+# required by archivemount (argument)
+=sys-fs/archivemount-1b ~amd64
+# required by games-emulation/azahar-2125.1.3::guru
+# required by azahar (argument)
+=dev-libs/nihstro-0_pre20250505 ~amd64
+# required by games-emulation/azahar-2125.1.3::guru
+# required by azahar (argument)
+=media-libs/VulkanMemoryAllocator-3.4.0 ~amd64
+# required by games-emulation/azahar-2125.1.3::guru
+# required by azahar (argument)
+=dev-libs/microprofile-4.0 ~amd64
+# required by dev-libs/dynarmic-6.7.0::guru
+# required by games-emulation/azahar-2125.1.3::guru
+# required by azahar (argument)
+=dev-libs/xbyak-7.33.3 ~amd64
+# required by dev-libs/dynarmic-6.7.0::guru
+# required by games-emulation/azahar-2125.1.3::guru
+# required by azahar (argument)
+=dev-libs/mcl-0.1.14 ~amd64
+# required by dev-libs/zydis-4.1.1::guru
+# required by dev-libs/dynarmic-6.7.0::guru
+# required by games-emulation/azahar-2125.1.3::guru
+# required by azahar (argument)
+=dev-libs/zycore-c-1.5.2 ~amd64
+# required by games-emulation/azahar-2125.1.3::guru
+# required by azahar (argument)
+=dev-libs/sirit-1.0.5 ~amd64
+# required by games-emulation/azahar-2125.1.3::guru
+# required by azahar (argument)
+=dev-libs/dynarmic-6.7.0 ~amd64
+# required by dev-libs/dynarmic-6.7.0::guru
+# required by games-emulation/azahar-2125.1.3::guru
+# required by azahar (argument)
+=dev-libs/zydis-4.1.1 ~amd64
+# required by azahar (argument)
+=games-emulation/azahar-2125.1.3 ~amd64
+# required by games-emulation/azahar-2125.1.3::guru
+# required by azahar (argument)
+=dev-libs/teakra-20250824 ~amd64
+# required by fuse-archive (argument)
+=app-arch/fuse-archive-1.20 ~amd64
+# required by android-studio (argument)
+=dev-util/android-studio-2026.1.3.7 ~amd64
+# required by game-device-udev-rules (argument)
+=games-util/game-device-udev-rules-20260625 ~amd64

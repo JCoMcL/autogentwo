@@ -1,0 +1,3 @@
+media-gfx/imagemagick corefonts fontconfig postscript
+app-text/zarhura-meta pdf cb epub postscript
+media-gfx/* bmp

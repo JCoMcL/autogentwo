@@ -7,3 +7,14 @@ media-libs/libwebp -tiff
 x11-libs/gtk+ -cups
 media-video/ffmpeg -sdl
 sys-devel/gcc graphite
+sys-libs/ncurses -gpm
+
+# dependendency conflicts
+x11-libs/libxcb ABI_X86: 32
+app-arch/bzip2 ABI_X86: 32
+dev-libs/libff ABI_X86: 32
+app-arch/zstd ABI_X86: 32
+dev-libs/libxml2 ABI_X86: 32
+dev-libs/libffi ABI_X86: 32
+sci-libs/fftw threads
+
