@@ -1,9 +1,11 @@
 GENTOO_ARCH=amd64
 
-etc: /etc/portage /etc/kernel
+etc: /etc/portage /etc/kernel /etc/sysctl.d /etc/udev
 	mkdir -p $@
 	rsync --exclude-from=portage.exclude -r /etc/portage/ $@/portage
 	rsync -r /etc/kernel/ $@/kernel
+	rsync -r /etc/sysctl.d/ $@/sysctl.d
+	rsync -r /etc/udev $@/udev
 
 world: /var/lib/portage/world
 	cp /var/lib/portage/world $@
