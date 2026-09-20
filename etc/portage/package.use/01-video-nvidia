@@ -1,0 +1,21 @@
+*/* VIDEO_CARDS: -* intel nvidia
+*/* vaapi vdpau opencl osl opengl glslang libplacebo cuda nvenc
+
+# nvidia compute target — Quadro T500 (TU117, Turing, compute capability 7.5)
+# ascertained with: __nv_relfatbin / nvidia-smi --query-gpu=compute_cap
+*/* -cuda_targets_*
+*/* cuda_targets_sm_75
+
+media-libs/mesa zink vulkan-overlay d3d9 xa
+sci-ml/ollama cuda
+sci-ml/* -flash
+
+sys-apps/fwupd fastboot uefi gnutls
+
+x11-drivers/nvidia-drivers persistenced tools
+
+#vulkan
+*/* vulkan
+gui-libs/gtk -vulkan
+media-video/ffmpeg -vulkan
+media-video/mpv -vulkan
