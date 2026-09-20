@@ -9,12 +9,33 @@ media-video/ffmpeg -sdl
 sys-devel/gcc graphite
 sys-libs/ncurses -gpm
 
-# dependendency conflicts
-x11-libs/libxcb ABI_X86: 32
-app-arch/bzip2 ABI_X86: 32
-dev-libs/libff ABI_X86: 32
-app-arch/zstd ABI_X86: 32
-dev-libs/libxml2 ABI_X86: 32
-dev-libs/libffi ABI_X86: 32
-sci-libs/fftw threads
+# circular deps
+dev-python/pillow -truetype
+media-sound/lame -frontend
 
+# dependendency conflicts
+
+# */* ABI_X86: 32
+app-arch/brotli ABI_X86: 32
+app-arch/bzip2 ABI_X86: 32
+app-arch/zstd ABI_X86: 32
+dev-libs/icu ABI_X86: 32
+dev-libs/libff ABI_X86: 32
+dev-libs/libffi ABI_X86: 32
+dev-libs/libxml2 ABI_X86: 32
+media-libs/harfbuzz ABI_X86: 32
+media-libs/libpng ABI_X86: 32
+x11-libs/cairo ABI_X86: 32
+x11-libs/libX11 ABI_X86: 32
+x11-libs/libxcb ABI_X86: 32
+x11-libs/pixman ABI_X86: 32
+
+#x11-libs/fltk opengl
+sci-libs/fftw threads
+app-text/xmlto text
+app-text/poppler cairo
+media-libs/libvpx postproc
+sys-libs/zlib-ng compat ABI_X86: 32
+sys-libs/minizip-ng compat
+
+dev-util/claude-code CPU_FLAGS_X86: avx2

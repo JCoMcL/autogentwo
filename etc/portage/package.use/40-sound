@@ -1,5 +1,8 @@
-media-video/pipewire bluetooth extra pipewire-alsa ffmpeg gstreamer sound-server v4l jack-sdk dbus
+media-video/pipewire bluetooth extra pipewire-alsa -ffmpeg gstreamer sound-server v4l jack-sdk dbus
+*/* pipewire alsa
 media-sound/* pipewire oss midi alsa
+media-libs/openal -alsa
+
 media-sound/fluidsynth -pulseaudio
 media-libs/openal pulseaudio pipewire
 www-client/firefox -pulseaudio

@@ -156,3 +156,23 @@ www-apps/radicale ~amd64
 =dev-util/android-studio-2026.1.3.7 ~amd64
 # required by game-device-udev-rules (argument)
 =games-util/game-device-udev-rules-20260625 ~amd64
+# required by kakoune (argument)
+=app-editors/kakoune-2026.05.21 ~amd64
+# required by media-gfx/blender-5.0.0::jortage[hip]
+# required by @selected
+# required by @world (argument)
+=dev-util/hip-7.2.0-r1 ~amd64
+# required by dev-games/godot-4.6.3::jortage
+# required by @selected
+# required by @world (argument)
+=net-libs/wslay-1.1.1_p20210115 ~amd64
+# required by dev-games/godot-4.6.3::jortage
+# required by @selected
+# required by @world (argument)
+=dev-games/recastnavigation-1.6.0-r1 ~amd64
+# required by media-video/syncplay-1.7.6::guru[python_single_target_python3_13]
+# required by @selected
+# required by @world (argument)
+=dev-python/pem-23.1.0-r1 ~amd64
+# required by opencode-bin (argument)
+=dev-util/opencode-bin-1.18.30 ~amd64

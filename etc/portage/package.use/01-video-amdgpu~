@@ -1,4 +1,4 @@
-*/* VIDEO_CARDS: radeon radeonsi
+*/* VIDEO_CARDS: -* radeon radeonsi
 */* rocm vaapi vdpau opencl osl opengl glslang libpacebo amf rocm
 
 # ascertained with amdgpu-arch utility

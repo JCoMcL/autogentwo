@@ -1,0 +1,31 @@
+kde-*/* -acl -kwallet -keyring -legacy-wallet -policykit
+=dev-python/pyqt5-5.15.11 dbus multimedia printsupport svg
+=dev-qt/qtprintsupport-5.15.17 cups
+media-video/ffmpeg x264
+media-libs/opencv features2d contrib contribdnn
+
+# required by media-gfx/krita
+>=dev-python/pyqt5-5.15.11 gui python_targets_python3_11 widgets declarative network
+
+dev-qt/* icu
+
+media-video/ffmpeg sdl
+dev-qt/* -bluetooth -crypt -zstd -libinput
+
+# required by media-video/syncplay-1.7.6::guru[python_single_target_python3_13,client,gui]
+# required by @selected
+# required by @world (argument)
+>=dev-python/qtpy-2.4.3-r3 pyside6
+# required by media-gfx/krita-6.0.3-r1::gentoo[python_single_target_python3_13]
+# required by @selected
+# required by @world (argument)
+>=dev-python/pyqt6-6.11.0-r1 svg qml
+
+# media-gfx/krita needs dev-qt/qtbase[opengl], and opengl is not IUSE-default
+# anywhere in dev-qt. qtdeclarative/qtmultimedia/qtquick3d/qtwebengine and
+# qttools[widgets] all have a must-match opengl= dep on qtbase, so the whole
+# category has to agree -- hence the wildcard rather than a list.
+dev-qt/* opengl
+# dev-python/pyside has the same must-match opengl= dep on qtbase.
+dev-python/pyside opengl
+

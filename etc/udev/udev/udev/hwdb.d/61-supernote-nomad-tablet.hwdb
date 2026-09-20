@@ -1,0 +1,5 @@
+# Nomad ships a HID digitizer descriptor with no X/Y Unit, so the kernel reports
+# resolution 0 and libinput drops the pen. Supply a resolution to make it usable.
+evdev:input:b0003v2207p0007*
+ EVDEV_ABS_00=::276
+ EVDEV_ABS_01=::207

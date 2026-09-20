@@ -9,3 +9,5 @@ www-client/firefox openh264
 
 media-libs/gst-plugins-base -egl -gles2 -opengl -pango
 dev-python/pillow jpeg tiff truetype webp zlib openmp postscript readline
+
+media-libs/libgphoto2 exif

@@ -1,0 +1,12 @@
+net-libs/libmicrohttpd no-binpkg.conf
+
+*/* ccache.conf
+dev-java/openjdk-* no-ccache.conf #FEATURES=ccache doesn't work with openjdk, bug #677876
+sys-kernel/gentoo-kernel no-binpkg.conf
+
+dev-games/aseprite network-errors-during-build.conf
+www-apps/hugo network-errors-during-build.conf
+app-misc/pup network-errors-during-build.conf
+media-libs/zrythm network-errors-during-build.conf no-mold.conf
+dev-util/github-cli network-errors-during-build.conf
+
