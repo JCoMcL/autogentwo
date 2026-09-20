@@ -1,5 +1,9 @@
 GENTOO_ARCH=amd64
 
+.PHONY: update
+update: /etc/portage/ /etc/kernel/
+	touch $+
+
 etc: /etc/portage /etc/kernel /etc/sysctl.d /etc/udev
 	mkdir -p $@
 	rsync --exclude-from=portage.exclude -r /etc/portage/ $@/portage
