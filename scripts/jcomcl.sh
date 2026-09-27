@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
-# Set up the jcomcl account: zsh, groups, doas, tty1 autologin, dotfiles.
-set -e
 
+# Set up the jcomcl account: zsh, groups, doas, tty1 autologin, dotfiles.
 error() {
 	echo [0m[31m$@[0m >&2
 }
@@ -15,57 +14,48 @@ die() {
 	exit 1
 }
 
-step() {
-	echo [1m:: $@[0m
-}
-
 USERNAME=jcomcl
 DOTFILES=https://github.com/jcomcl/dotfiles.git
 
+useradd --create-home --user-group --shell=/bin/zsh "$USERNAME"
+
 # Every admin/permission group worth having. Omits the root-equivalent ones
 # (disk mem kmem shadow tty), which would bypass doas entirely.
-USER_GROUPS="wheel audio video input render kvm usb cdrom cdrw plugdev
-lpadmin netdev scanner dialout portage pipewire users uucp tape floppy
-android cuse sgx"
+USER_GROUPS="wheel adm admin audio pipewire video input render lp lpadmin kvm usb cdrom cdrw plugdev netdev scanner dialout portage users uucp tape floppy android cuse sgx"
 
-test "$(id -u)" -eq 0 || die "must run as root"
-
-step "account"
-# useradd -G fails the whole call on an unknown group, and early in an install
-# half of these don't exist yet (lpadmin ships with cups, pipewire with
-# pipewire), so filter to what the system actually has.
-SUPP=
+set -x
 for g in $USER_GROUPS; do
-	if getent group "$g" >/dev/null; then
-		SUPP="$SUPP,$g"
-	else
-		warn "skipping absent group: $g"
-	fi
+	usermod --append --groups $g
 done
+set +x
 
-# -U gives a per-user primary group; `users` comes in as a supplementary
-useradd -m -U -s /bin/zsh -G "${SUPP#,}" -c "$USERNAME" "$USERNAME"
+if command -v doas; then set -x
+	echo "permit nopass $USERNAME" >>/etc/doas.conf.new
+	chown root:root /etc/doas.conf.new
+	chmod 0400 /etc/doas.conf.new
+	doas -C /etc/doas.conf.new || die "/etc/doas.conf.new rejected by doas -C"
 
-step "doas"
-echo "permit nopass $USERNAME" >/etc/doas.conf
-chown root:root /etc/doas.conf
-chmod 0400 /etc/doas.conf
-doas -C /etc/doas.conf || die "/etc/doas.conf rejected by doas -C"
-ln -sfn doas /usr/bin/sudo
+	if test -f /etc/doas.conf &&
+	! diff /etc/doas.conf /etc/doas.conf.new # `! diff` = files DO differ
+		then mv /etc/doas.conf /etc/doas.conf.old
+	fi
 
-step "autologin"
+	ln -sfn doas /usr/bin/sudo
+
+	set +x
+elif command -v sudo; then
+	warn "currently no sudo support"
+	# note whether the system uses "admin" "adm" or "wheel" needs to be figured out
+fi
+
+if test -f /etc/inittab
 sed -i -E "s|(^c1:.*/sbin/agetty)(.*[[:space:]]tty1[[:space:]])|\1 --autologin $USERNAME\2|" \
 	/etc/inittab
 grep -E "[[:space:]]tty1[[:space:]]" /etc/inittab
 
-step "dotfiles"
-# --no-bootstrap: don't run repo-supplied code unprompted.
-su - "$USERNAME" -s /bin/sh -c "yadm clone --no-bootstrap $DOTFILES"
-# Submodules are registered but empty after yadm's bare clone, and
-# --recurse-submodules on `yadm clone` does not cover them.
-su - "$USERNAME" -s /bin/sh -c 'yadm submodule update --init --recursive'
+if command -v yadm; then
+	su - "$USERNAME" -s /bin/sh -c "yadm clone --no-bootstrap $DOTFILES"
+	su - "$USERNAME" -s /bin/sh -c 'yadm submodule update --init --recursive'
+fi
 
-step "password"
 passwd "$USERNAME"
-
-step "done"
