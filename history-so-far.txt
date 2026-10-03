@@ -1,0 +1,469 @@
+    1  ls
+    2  cd /etc
+    3  cd portage/
+    4  ls
+    5  eselect profile/
+    6  rm make.profile 
+    7  emerge-webrsync 
+    8  eselect profile list
+    9  eselect profile set 0
+   10  eselect profile set 1
+   11  eselect profile 
+   12  eselect profile show
+   13  eselect profile list | less
+   14  cd
+   15  cd autogentwo/
+   16  emerge make
+   17  emerge =kakoune-9999
+   18  equery
+   19  emerge kakoune
+   20  emerge --ask --autounmask kakoune
+   21  emerge --ask --autounmask kakoune
+   22  emerge lf
+   23  eselect repo 
+   24  emerge eselect-repo
+   25  emerge eselect-repository
+   26  eselect repository list
+   27  eselect repository 
+   28  eselect repository guru enable
+   29  eselect repository enable guru
+   30  emerge --ask --autounmask kakoune
+   31  emerge lf
+   32  ls /var/db/repos/
+   33  eselect repository enable guru
+   34  eselect repository
+   35  emaint 
+   36  emaint sync guru
+   37  emaint sync --repo guru
+   38  emerge lf
+   39  emerge --ask lf
+   40  emerge --ask lf
+   41  cd /etc/portage/
+   42  cd package.use/
+   43  ls
+   44  grep truetype *
+   45  kak
+   46  nano z0-fixes 
+   47  emerge --ask lf
+   48  emerge --ask lf
+   49  ls
+   50  cat 10-zfs 
+   51  cat 40-misc
+   52  cat 40-wireless
+   53  cat 00-xorg
+   54  cat 01-amdgpu 
+   55  cp 01-amdgpu 00-video-generic
+   56  nano 00-video-generic 
+   57  ls
+   58  ls -a
+   59  mkdir ../package.used
+   60  mpv 01-amdgpu ../package.used/
+   61  mv 01-amdgpu ../package.used/
+   62  cat cross-arm-none-eabi 
+   63  mv cross-arm-none-eabi ../package.used
+   64  mv zz-automatic ../package.used
+   65  touch zz-automatic
+   66  cat 40-kde
+   67  ls
+   68  cat 00-xorg 
+   69  cat 40-android 
+   70  mv 40-steam ../package.used
+   71  cat z0-installkernel 
+   72  cat 00-auto-hardware 
+   73  rm 00-auto-hardware 
+   74  cd ..
+   75  ls
+   76  cd make.
+   77  cd make.conf/
+   78  ls
+   79  nano main.conf 
+   80  ls
+   81  cat 20-python.conf 
+   82  mv 20-python.conf 20-python.conf.disabled
+   83  mv 20-python.conf.disabled 20-python.conf
+   84  cat 10-secureboot.conf 
+   85  cd
+   86  nano Makefile
+   87  cd autogentwo/
+   88  nano Makefile 
+   89  ./scripts/templ.sh templates/root-device.config.templ 
+   90  ./scripts/templ.sh templates/root-device.config.templ > /etc/kernel/config.d/root-device.config
+   91  emaint sync --repo jortage
+   92  get lf
+   93  emerge lf
+   94  cd
+   95  cp autogentwo/world /var/lib/portage/world
+   96  emerge kakoune
+   97  kak /var/lib/portage/world
+   98  emerge --newuse --deep --update --quiet @world
+   99  emerge --ask --autounmask --newuse --deep --update --quiet @world
+  100  kak /var/lib/portage/world
+  101  emerge --ask --autounmask --newuse --deep --update --quiet @world
+  102  cd /etc/portage/
+  103  ls
+  104  cd package.used
+  105  ls
+  106  ..
+  107  cd ..
+  108  cd package.use
+  109  kak z0-fixes 
+  110  kak 00-elogind
+  111  emerge --ask --autounmask --newuse --deep --update --quiet @world
+  112  kak z0-fixes 
+  113  emerge claude-code
+  114  emerge --ask --autounmask --newuse --deep --update --quiet @world
+  115  cd
+  116  cd autogentwo/
+  117  ./scripts/templ.sh templates/00-auto-hardware.templ 
+  118  emerge cpuid2cpuflags
+  119  ./scripts/templ.sh templates/00-auto-hardware.templ 
+  120  cd /etc/portage/
+  121  cd package.use
+  122  cat z0-fixes 
+  123  kak z0-fixes 
+  124  emerge --ask --autounmask --newuse --deep --update --quiet @world
+  125  kak z0-fixes 
+  126  emerge --ask --autounmask --newuse --deep --update --quiet @world
+  127  kak z0-fixes 
+  128  kak z0-fixes 
+  129  emerge --ask --autounmask --newuse --deep --update --quiet @world
+  130  kak z0-fixes 
+  131  emerge --ask --autounmask --newuse --deep --update --quiet @world
+  132  kak z0-fixes 
+  133  emerge --ask --autounmask --newuse --deep --update --quiet @world
+  134  emerge --ask --autounmask 
+  135  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  136  kak z0-fixes 
+  137  kak /var/lib/portage/world
+  138  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  139  kak /var/lib/portage/world
+  140  kak z0-fixes 
+  141  kak /var/lib/portage/world
+  142  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  143  kak /var/lib/portage/world
+  144  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  145  mv ../package.used/40-steam  .
+  146  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  147  kak /var/lib/portage/world
+  148  kak z0-fixes 
+  149  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  150  kak z0-fixes 
+  151  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  152  mv 40-steam ../package.used
+  153  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  154  kak /var/lib/portage/world
+  155  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  156  kak /var/lib/portage/world
+  157  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  158  kak /var/lib/portage/world
+  159  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  160  kak /var/lib/portage/world
+  161  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  162  kak /var/lib/portage/world
+  163  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  164  cpuid2cpuflags 
+  165  cpuid2cpuflags  > 00-auto-hardware
+  166  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  167  kak z0-fixes 
+  168  emerge --ask --autounmask --autounmask-write --newuse --deep --update --quiet @world
+  169  eselect kernel
+  170  eselect kernel list
+  171  get gentoo-kernel
+  172  emerge --newuse --deep gentoo-kernel
+  173  echo $?
+  174  less /var/log/emerge.log
+  175  lf /var/log/portage/
+  176  ls /var/log/portage/
+  177  ls /var/log/portage/elog/
+  178  less /var/log/portage/elog/summary.log 
+  179  ls /efi
+  180  ls
+  181  ls /
+  182  lsblk
+  183  emerge installkernel
+  184  cd /etc/dracut.conf
+  185  kak /etc/dracut.conf
+  186  mkdir /etc/dracut.conf.d
+  187  cp /etc/kernel/config.d/root-device.config /etc/dracut.conf.d/uki.conf
+  188  kak /etc/dracut.conf.d/uki.conf
+  189  emerge --newuse --deep gentoo-kernel
+  190  emerge --newuse --deep --update gentoo-kernel
+  191  installkernel
+  192  emerge gentoo-kernel
+  193  cd
+  194  find . -name '*.log'
+  195  find / -name '*.log'
+  196  less /var/tmp/portage/sys-kernel/gentoo-kernel-6.18.48/temp/build.log 
+  197  emerge gentoo-kernel
+  198  cd /etc/portage/
+  199  ls
+  200  grep -R . 
+  201  grep -R 'MAKE' .
+  202  grep -R 'MAKE' .
+  203  emerge gotop
+  204  df
+  205  emerge gentoo-kernel
+  206  echo $?
+  207  ls /efi/
+  208  fi d /efi
+  209  find /efi
+  210  emerge --deep --newuse --update --keep-going @world
+  211  cd package.use
+  212  kak z0-fixes 
+  213  kak z0-fixes 
+  214  kak z0-fixes 
+  215  emerge --deep --newuse --update --keep-going @world
+  216  kak z0-fixes 
+  217  kak z0-fixes 
+  218  emerge --deep --newuse --update --keep-going @world
+  219  kak z0-fixes 
+  220  emerge --deep --newuse --update --keep-going @world
+  221  kak z0-fixes 
+  222  kak z0-fixes 
+  223  emerge --deep --newuse --update --keep-going @world
+  224  kak z0-fixes 
+  225  emerge --deep --newuse --update --keep-going @world
+  226  kak /var/lib/portage/world
+  227  emerge --deep --newuse --update --keep-going @world
+  228  e 00-auto-hardware 
+  229  kak 00-auto-hardware 
+  230  kak z0-fixes 
+  231  emerge --deep --newuse --update --keep-going @world
+  232  kak 00-auto-hardware 
+  233  emerge --deep --newuse --update --keep-going @world
+  234  kak z0-fixes 
+  235  emerge --deep --newuse --update --keep-going @world
+  236  kak z0-fixes 
+  237  kak 40-sound 
+  238  emerge --deep --newuse --update --keep-going @world
+  239  kak z0-fixes 
+  240  emerge --deep --newuse --update --keep-going @world
+  241  kak z0-fixes 
+  242  kak z0-fixes 
+  243  emerge --deep --newuse --update --keep-going @world
+  244  emerge --ask --autounmask --deep --newuse --update --keep-going @world
+  245  kak z0-fixes 
+  246  emerge --ask --autounmask --deep --newuse --update --keep-going @world
+  247  kak z0-fixes 
+  248  emerge --ask --autounmask --deep --newuse --update --keep-going @world
+  249  kak /var/lib/portage/world
+  250  emerge --ask --autounmask --deep --newuse --update --keep-going @world
+  251  grep -r . blender
+  252  grep -r blender .
+  253  mv 40-blender ../package.used
+  254  emerge --ask --autounmask --deep --newuse --update --keep-going @world
+  255  emerge --ask --autounmask --deep --newuse --update --keep-going @world
+  256  emerge --ask --autounmask --deep --newuse --update --keep-going @world | less
+  257  emerge --ask --autounmask --deep --newuse --update --keep-going @world
+  258  rc-service sshd set up
+  259  get --ask sshd
+  260  get --ask openssh
+  261  emerge --ask openssh
+  262  sshd
+  263  sshd /
+  264  sshd /
+  265  rc-service ssh
+  266  rc-service sshd
+  267  rc-service sshd start
+  268  emerge --newuse --deep --with-bdeps=y openssh
+  269  emerge --newuse --deep --with-bdeps=y --update openssh
+  270  eatmydata emerge --newuse --deep --with-bdeps=y --update openssh
+  271  mount -t tmpfs -o size=16G,mode=1777 tmpfs /var/tmp/portage
+  272  eatmydata emerge --newuse --deep --with-bdeps=y --update openssh
+  273  eatmydata emerge --newuse --deep --with-bdeps=y --update openssh
+  274  umount /var/tmp/portage/
+  275  eatmydata emerge --newuse --deep --with-bdeps=y --update openssh
+  276  ls
+  277  ..
+  278  cd ..
+  279  cd make.conf/
+  280  ls
+  281  cat 40-binary-packages.conf 
+  282  emerge 
+  283  cd ..
+  284  ls
+  285  ls package.env
+  286  ls env
+  287  kak misc.env 
+  288  kak package.env/fixes
+  289  cat misc.env 
+  290  kak package.env/fixes
+  291  ls env
+  292  cat env/no-binpkg.conf 
+  293  eatmydata emerge --newuse --deep --with-bdeps=y --update openssh
+  294  emerge --onseshot libmicrohttpd
+  295  emerge --oneshot libmicrohttpd
+  296  kak make.conf/main.conf 
+  297  emerge --onseshot libmicrohttpd
+  298  emerge --oneshot libmicrohttpd
+  299  eatmydata emerge --newuse --deep --with-bdeps=y --update openssh
+  300  rc-service 
+  301  rc-service sshd
+  302  rc-service sshd start
+  303  reboot
+  304  ls /efi
+  305  mkdir -p /efi/EFI/Linux
+  306  ls /efi
+  307  efibootmgr
+  308  htop
+  309  ls
+  310  emerge
+  311  htop
+  312  emerge htop
+  313  htop
+  314  pwd
+  315  emerge libeatmydata
+  316  emerge equery
+  317  equery
+  318  emerge -s equery
+  319  emerge command-not-found
+  320  command-not-found equery
+  321  emerge pfl
+  322  command-not-found equery
+  323  emerge gentoolkit
+  324  emerge -s smart-live-rebuild
+  325  emerge -s flaggie
+  326  equery f libeatmedata
+  327  equery f libeatmydata
+  328  eatmydata
+  329  cd /etc/portage/
+  330  cd make.
+  331  cd make.conf/
+  332  ls
+  333  kak 40-binary-packages.conf 
+  334  kak main.conf
+  335  emerge lf
+  336  kak main.conf
+  337  htop
+  338  pwd
+  339  emerge
+  340  emerge --ask --newuse --update --deep @world
+  341  emerge --ask --newuse --update --deep @world
+  342  emerge --ask --newuse --update --deep @world
+  343  equery u lame
+  344  emerge --ask --newuse --update --deep @world
+  345  equery u pipewire
+  346  equery u pipewire
+  347  emerge --ask --newuse --update --deep @world
+  348  emerge --ask --newuse --update --deep @world
+  349  equery u pipewire
+  350  equery u pipewire
+  351  emerge --ask --newuse --update --deep @world
+  352  kak eselect-repo.conf
+  353  lf
+  354  exec bash
+  355  eselect repository disable steam-overlay
+  356  lf
+  357  equery d caps-plugins
+  358  lf
+  359  equery d caps-plugins
+  360  emaint sync --repo arcan
+  361  eselect repository disable arcan
+  362  lf
+  363  emerge --newuse --ask @world
+  364  lf
+  365  emerge --newuse --ask @world
+  366  lf
+  367  emerge --newuse --ask @world
+  368  emerge claude-code
+  369  cd /etc/portage/
+  370  ls
+  371  cd package.use
+  372  e z0-fixes 
+  373  kak z0-fixes 
+  374  kak z0-fixes 
+  375  emerge claude-code
+  376  kak z0-fixes
+  377  kak z0-fixes
+  378  emerge claude-code
+  379  cd
+  380  mount -t tmpfs -o size=16G,mode=1777 tmpfs /var/tmp/portage
+  381  emerge --ask --newuse --update --deep --keep-going @world
+  382  equery l -po go
+  383  emerge =go-1.26.5
+  384  emerge --ask --newuse --update --deep --keep-going @world
+  385  emerge --ask --newuse --update --deep --keep-going @world
+  386  kak /var/lib/portage/world
+  387  emerge --ask --newuse --update --deep --keep-going @world
+  388  df
+  389  less /var/tmp/portage/media-plugins/caps-plugins-0.9.26/temp/build.log 
+  390  equery
+  391  equery d caps-plugins
+  392  equery g caps-plugins
+  393  lf
+  394  cd 
+  395  lf
+  396  eselect repository steam-overlay disable
+  397  eselect repository
+  398  eselect repository steam-overaly
+  399  eselect repository steam-overlay
+  400  lf
+  401  cat /etc/portage/repos.conf/eselect-repo.conf 
+  402  eselect repository steam-overlay
+  403  eselect repository 
+  404  eselect repository disable steam-overaly
+  405  eselect repository disable steam-overlay
+  406  eselect repository enable steam-overlay
+  407  lf
+  408  cd /etc/portage/
+  409  lf
+  410  reboot
+  411  ls
+  412  cd /etc/portage/
+  413  cd package.use
+  414  kak z0-fixes 
+  415  cd ..
+  416  cat >> misc.env package.env/fixes 
+  417  kak package.env/fixes 
+  418  cat misc.env >> package.env/fixes 
+  419  kak package.env/fixes 
+  420  kak misc.env 
+  421  equery u pipewire
+  422  equery u openal
+  423  cd package.use
+  424  kak 40-sound 
+  425  kak 40-sound 
+  426  kak 40-sound
+  427  grep -r ffmpeg .
+  428  kak 40-sound
+  429  df
+  430  df
+  431  df
+  432  df
+  433  df
+  434  df
+  435  df
+  436  df
+  437  df
+  438  df
+  439  df
+  440  df
+  441  df
+  442  df
+  443  df
+  444  efibootmgr
+  445  htop
+  446  sudo
+  447  doas
+  448  man doas
+  449  dmesg
+  450  passwd
+  451  shutdown
+  452  shutdown -Ph 0
+  453  claude
+  454  rc-service 
+  455  rc-service sshd
+  456  rc-service sshd start
+  457  passwd
+  458  echo $USER
+  459  passwd root
+  460  passwd
+  461  kak /etc/ssh/sshd_config
+  462  rc-service sshd restart
+  463  claude
+  464  ls
+  465  clear
+  466  tput reset
+  467  ls
+  468  cd autogentwo/
+  469  history > history-so-far.txt
