@@ -17,3 +17,7 @@ add_service bluetooth
 
 # nice to have
 add_service sshd
+
+# security
+add_service syslog-ng
+add_service fail2ban

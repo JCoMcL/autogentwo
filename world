@@ -232,3 +232,6 @@ x11-misc/xdg-utils
 x11-misc/xdotool
 x11-misc/xwallpaper
 x11-terms/alacritty
+app-admin/syslog-ng
+net-analyzer/fail2ban
+app-admin/logrotate

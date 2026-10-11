@@ -1,0 +1,17 @@
+# Local override enabling the stock "recidive" jail (defined disabled in
+# jail.conf). Escalates IPs that keep coming back: an IP banned 5+ times in
+# one day is then banned for a full week on ALL ports.
+# Reads fail2ban's own log (/var/log/fail2ban.log, set in fail2ban.conf).
+
+[recidive]
+
+enabled   = true
+filter    = recidive
+logpath   = /var/log/fail2ban.log
+banaction = iptables-allports
+bantime   = 1w
+findtime  = 1d
+maxretry  = 5
+
+# ignoreip is inherited from [DEFAULT] (jail.d/sshd.local), so the management
+# LAN can never be escalated even by accident.

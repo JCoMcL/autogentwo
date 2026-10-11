@@ -1,0 +1,31 @@
+# Local fail2ban overrides for planD (Gentoo/OpenRC).
+# Loaded after /etc/fail2ban/jail.conf; every key below overrides it.
+# See: fail2ban-setup.md in this repo for the full rationale.
+
+[DEFAULT]
+
+# No systemd and no pyinotify on this host, so read the log by polling.
+backend = polling
+
+# Ban for 1h on first offence; findtime/maxretry = 5 failures in 10 minutes.
+bantime  = 1h
+findtime = 10m
+maxretry = 5
+
+# Never ban localhost or the management LAN (jcomcl connects from 192.168.8.0/24).
+ignoreip = 127.0.0.1/8 ::1 192.168.8.0/24
+
+# Explicit: this host only has iptables (nft binary is not installed).
+banaction = iptables-multiport
+
+# Ban notifications: recipient + whois/log excerpt in the mail.
+destemail = alerts@jcom.cl
+
+[sshd]
+
+enabled = true
+port    = ssh
+logpath = /var/log/auth.log
+# default action: iptables-multiport on the INPUT chain
+# action_mwl = ban + mail with whois + log excerpts (mwl)
+action  = %(action_mwl)s
