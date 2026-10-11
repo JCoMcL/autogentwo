@@ -1,3 +1,9 @@
+# Install these first for bootstrap
+sys-devel/mold
+dev-util/ccache
+dev-vcs/git
+
+# Then these
 app-admin/doas
 app-admin/eclean-kernel
 app-admin/sysstat
@@ -41,7 +47,6 @@ dev-build/just
 dev-debug/gdb
 dev-games/aseprite
 dev-games/godot
-dev-java/openjdk:8
 dev-lang/go
 =dev-lang/odin-2026.07a
 dev-lang/python
@@ -62,17 +67,14 @@ dev-python/uv
 dev-util/android-sdk-cmdline-tools
 dev-util/android-tools
 dev-util/bear
-dev-util/ccache
 dev-util/ccls
 dev-util/checkbashisms
-dev-util/claude-code
 dev-util/github-cli
 dev-util/lua-language-server
 dev-util/pkgcheck
 dev-util/ruff
 dev-util/sdl-jstest
 dev-util/vulkan-tools
-dev-vcs/git
 dev-vcs/git-lfs
 #games-action/prismlauncher
 #games-emulation/dolphin
@@ -172,7 +174,6 @@ sys-block/f3
 sys-boot/efibootmgr
 sys-devel/binutils
 sys-devel/gcc
-sys-devel/mold
 sys-fs/archivemount
 sys-fs/bashmount
 sys-fs/bcachefs-tools
@@ -196,7 +197,7 @@ sys-power/cpupower
 sys-power/powerstat
 #sys-power/tlp
 sys-power/upower
-sys-process/at
+sys-process/cronie
 sys-process/gotop
 sys-process/htop
 sys-process/parallel
@@ -223,7 +224,6 @@ x11-misc/dmenu
 x11-misc/dunst
 x11-misc/fastcompmgr
 x11-misc/hsetroot
-x11-misc/picom
 x11-misc/redshift
 x11-misc/unclutter-xfixes
 x11-misc/xbindkeys
