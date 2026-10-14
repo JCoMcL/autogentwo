@@ -1,4 +1,5 @@
 GENTOO_ARCH=amd64
+#TODO this whole Makefile thing just doesn't really work at all. Just use a script
 
 .PHONY: update
 update: /etc/portage/ /etc/kernel/
@@ -22,32 +23,16 @@ etc/portage/make.conf/00-mirrorselect.conf:
 
 /mnt/gentoo/etc: stage3.tar.xz
 	tar xpvf $< --xattrs-include='*.*' --numeric-owner -C /mnt/gentoo
+	rsync -r etc/ $@
 
-/mnt/gentoo/etc/%: etc/% /mnt/gentoo/etc
-	rsync -r $< $@
-
-/mnt/gentoo/var/lib/portage/world: world
-	cp $< $@
-
-/mnt/gentoo/etc/resolv.conf: /etc/resolv.conf
-	cp --no-target-directory --dereference $< $@
-
-/mnt/gentoo/etc/fstab:
-	genfstab -U /mnt/gentoo > $@
-
-/mnt/gentoo: \
-	/mnt/gentoo/etc/portage/ \
-	/mnt/gentoo/etc/kernel/ \
+/mnt/gentoo: /mnt/gentoo/etc
 	scripts/templ.sh templates/root-device.config.templ > /mnt/gentoo/etc/kernel/root-device.config #TODO, template invocation should be automatic
-	/mnt/gentoo/etc/resolv.conf \
-	/mnt/gentoo/var/lib/portage/world \
-	/mnt/gentoo/etc/dracut.conf.d \
-	/mnt/gentoo/etc/fstab \
-	/mnt/gentoo/etc/ccache.conf \
-	/mnt/gentoo/etc/locale.gen
+	cp --no-target-directory --dereference -r /etc/resolv.conf $</resolv.conf
+	cp world /var/lib/portage/world
+	genfstab -U /mnt/gentoo > /mnt/gentoo/etc/fstab
 
-stage.tar.xz: gentoo-gpg-keys
-	scripts/download-files.sh http://distfiles.gentoo.org/releases/$(GENTOO_ARCH)/autobuilds/current-stage3-$(GENTOO_ARCH)-openrc asc xz sha256
+stage3.tar.xz:
+	scripts/download-files.sh "http://distfiles.gentoo.org/releases/$(GENTOO_ARCH)/autobuilds/current-stage3-$(GENTOO_ARCH)-openrc" asc xz sha256
 	ls *.asc | grep -v *.tar.xz | xargs rm -f # remove any .asc files that don't have a corresponding .tar.xz file
 	gpg --verify stage3-$(GENTOO_ARCH)-openrc-*.tar.xz.asc
 	sha256sum --check stage3-$(GENTOO_ARCH)-openrc-*.tar.xz.sha256

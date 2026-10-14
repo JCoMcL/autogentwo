@@ -10,12 +10,13 @@ test -n "$1" || die "at least one argument (a URL) required"
 URL="$1"
 
 filter() {
-    if [[ -n "$@" ]]; then
-        grep -E "\.($(echo "$*" | tr ' ' '|'))$"
+    if [ $# -gt 0 ]; then
+        ext=$(printf '%s|' "$@")
+        ext=${ext%|}
+        grep -E "\.(${ext})$"
     else
         cat
     fi
-
 }
 
 shift
