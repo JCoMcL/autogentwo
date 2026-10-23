@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 die() {
 	echo "[31m$@[0m" >&2
