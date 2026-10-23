@@ -2,34 +2,19 @@ GENTOO_ARCH=amd64
 #TODO this whole Makefile thing just doesn't really work at all. Just use a script
 
 .PHONY: update
-update: /etc/portage/ /etc/kernel/
-	touch $+
-
-etc: /etc/portage /etc/kernel /etc/sysctl.d /etc/udev
-	mkdir -p $@
-	rsync --exclude-from=portage.exclude -r /etc/portage/ $@/portage
-	rsync -r /etc/kernel/ $@/kernel
-	rsync -r /etc/sysctl.d/ $@/sysctl.d
-	rsync -r /etc/udev $@/udev
-
-world: /var/lib/portage/world
-	cp /var/lib/portage/world $@
-
-etc/portage/package.use/%: templates/%.templ
-	scripts/templ.sh $< > $@
-
-etc/portage/make.conf/00-mirrorselect.conf:
-	mirrorselect -s3 -o > $@
+update:
+	mkdir -p etc
+	rsync --exclude-from=portage.exclude -r /etc/portage/ etc/portage
+	rsync -r /etc/kernel/ etc/kernel
+	rsync -r /etc/sysctl.d/ etc/sysctl.d
+	rsync -r /etc/udev etc/udev
+	cp /var/lib/portage/world world
 
 .PHONY: /mnt/gentoo/etc
 /mnt/gentoo/etc: stage3.tar.xz
 	#tar xpvf $< --xattrs-include='*.*' --numeric-owner --overwrite -C /mnt/gentoo >/dev/null
-	#rsync -r etc/ $@
-	mkdir -p $@/kernel/config.d $@/dracut.conf.d
-	scripts/templ.sh templates/root-device.config.templ > $@/kernel/config.d/root-device.config #TODO, template invocation should be automatic
-	scripts/templ.sh templates/dracut-cmdline.templ > $@/dracut.conf.d/zz-bcachefs-cmdline.conf
-	cp etc/dracut.conf.d/bcachefs.conf $@/dracut.conf.d/bcachefs.conf
-	scripts/templ.sh templates/00-auto-hardware.templ > /mnt/gentoo/etc/portage/package.use/00-auto-hardware
+	rsync -r etc/ $@
+	scripts/templ.sh $@
 	cp --no-target-directory --dereference -r /etc/resolv.conf $@/resolv.conf
 	cp world /mnt/gentoo/var/lib/portage/world
 	scripts/genfstab.sh /mnt/gentoo > /mnt/gentoo/etc/fstab
