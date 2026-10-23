@@ -22,7 +22,7 @@ update:
 stage3.tar.xz:
 	scripts/download-files.sh "http://distfiles.gentoo.org/releases/$(GENTOO_ARCH)/autobuilds/current-stage3-$(GENTOO_ARCH)-openrc" asc xz sha256
 	ls *.asc | grep -v *.tar.xz | xargs rm -f # remove any .asc files that don't have a corresponding .tar.xz file
-	gpg --verify stage3-$(GENTOO_ARCH)-openrc-*.tar.xz.asc
+	gpg --verify stage3-$(GENTOO_ARCH)-openrc-*.tar.xz.asc stage3-$(GENTOO_ARCH)-openrc-*.tar.xz
 	sha256sum --check stage3-$(GENTOO_ARCH)-openrc-*.tar.xz.sha256
 	ln -sf stage3-$(GENTOO_ARCH)-openrc-*.tar.xz $@
 
