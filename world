@@ -27,7 +27,7 @@ app-misc/jq
 app-misc/lf
 app-misc/livecd-tools
 app-misc/pirate-get
-app-misc/radeontop
+#app-misc/radeontop
 app-misc/trash-cli
 app-misc/umenu
 app-mobilephone/scrcpy
@@ -89,16 +89,16 @@ media-fonts/fontawesome
 media-fonts/hack
 media-fonts/noto
 media-fonts/noto-cjk
-media-gfx/blender
-media-gfx/chitubox
-media-gfx/darktable
-media-gfx/gphoto2
-media-gfx/gphotofs
-media-gfx/imagemagick
-media-gfx/imv
-media-gfx/inkscape
-media-gfx/krita
-media-gfx/maim
+#media-gfx/blender
+#media-gfx/chitubox
+#media-gfx/darktable
+#media-gfx/gphoto2
+#media-gfx/gphotofs
+#media-gfx/imagemagick
+#media-gfx/imv
+#media-gfx/inkscape
+#media-gfx/krita
+#media-gfx/maim
 media-gfx/qrencode
 media-gfx/sane-airscan
 media-gfx/sane-backends
@@ -115,22 +115,22 @@ media-plugins/calf
 media-plugins/caps-plugins
 media-plugins/tap-plugins
 media-plugins/x42-plugins
-media-sound/ardour
-media-sound/audacity
-media-sound/bristol
-media-sound/carla
-media-sound/din
-media-sound/fluid-soundfont
-media-sound/fluidsynth
-media-sound/helm
-media-sound/hydrogen
-media-sound/kid3
-media-sound/lingot
-media-sound/pulsemixer
-media-sound/songrec
-media-sound/yoshimi
-media-video/mpv
-media-video/obs-studio
+# media-sound/ardour
+# media-sound/audacity
+# media-sound/bristol
+# media-sound/carla
+# media-sound/din
+# media-sound/fluid-soundfont
+# media-sound/fluidsynth
+# media-sound/helm
+# media-sound/hydrogen
+# media-sound/kid3
+# media-sound/lingot
+# media-sound/pulsemixer
+# media-sound/songrec
+# media-sound/yoshimi
+# media-video/mpv
+# media-video/obs-studio
 media-video/syncplay
 media-video/wireplumber
 net-analyzer/netcat
@@ -210,28 +210,28 @@ www-apps/hugo
 www-client/firefox-bin
 #www-client/google-chrome
 www-client/lynx
-x11-apps/mesa-progs
-x11-apps/xdpyinfo
-x11-apps/xev
-x11-apps/xinit
-x11-apps/xinput
-x11-apps/xkill
-x11-apps/xrandr
-x11-apps/xset
-x11-apps/xsetroot
-x11-base/xorg-server
-x11-misc/dmenu
-x11-misc/dunst
-x11-misc/fastcompmgr
-x11-misc/hsetroot
-x11-misc/redshift
-x11-misc/unclutter-xfixes
-x11-misc/xbindkeys
-x11-misc/xclip
-x11-misc/xdg-utils
-x11-misc/xdotool
-x11-misc/xwallpaper
-x11-terms/alacritty
+# x11-apps/mesa-progs
+# x11-apps/xdpyinfo
+# x11-apps/xev
+# x11-apps/xinit
+# x11-apps/xinput
+# x11-apps/xkill
+# x11-apps/xrandr
+# x11-apps/xset
+# x11-apps/xsetroot
+# x11-base/xorg-server
+# x11-misc/dmenu
+# x11-misc/dunst
+# x11-misc/fastcompmgr
+# x11-misc/hsetroot
+# x11-misc/redshift
+# x11-misc/unclutter-xfixes
+# x11-misc/xbindkeys
+# x11-misc/xclip
+# x11-misc/xdg-utils
+# x11-misc/xdotool
+# x11-misc/xwallpaper
+# x11-terms/alacritty
 app-admin/syslog-ng
 net-analyzer/fail2ban
 app-admin/logrotate
