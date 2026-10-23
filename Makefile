@@ -21,14 +21,14 @@ etc/portage/package.use/%: templates/%.templ
 etc/portage/make.conf/00-mirrorselect.conf:
 	mirrorselect -s3 -o > $@
 
+.PHONY: /mnt/gentoo/etc
 /mnt/gentoo/etc: stage3.tar.xz
-	tar xpvf $< --xattrs-include='*.*' --numeric-owner -C /mnt/gentoo
-	rsync -r etc/ $@
-
-/mnt/gentoo: /mnt/gentoo/etc
+	#tar xpvf $< --xattrs-include='*.*' --numeric-owner --overwrite -C /mnt/gentoo >/dev/null
+	#rsync -r etc/ $@
 	scripts/templ.sh templates/root-device.config.templ > /mnt/gentoo/etc/kernel/root-device.config #TODO, template invocation should be automatic
-	cp --no-target-directory --dereference -r /etc/resolv.conf $</resolv.conf
-	cp world /var/lib/portage/world
+	scripts/templ.sh templates/00-auto-hardware.templ > /mnt/gentoo/etc/portage/package.use/00-auto-hardware
+	cp --no-target-directory --dereference -r /etc/resolv.conf $@/resolv.conf
+	cp world /mnt/gentoo/var/lib/portage/world
 	genfstab -U /mnt/gentoo > /mnt/gentoo/etc/fstab
 
 stage3.tar.xz:
