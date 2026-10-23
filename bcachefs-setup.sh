@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# BCacheFS setup for planD: tiered, 2-way replicated, 8 HDD + 2 NVMe.
+# BCacheFS setup for tiered, 2-way replicated, 8 HDD + 2 NVMe.
 #
 # Run as root. DESTRUCTIVE: every disk named here is overwritten.
 #
@@ -133,7 +133,7 @@ bcachefs format \
   --errors=fix_safe \
   --write_error_timeout=10 \
   --gc_reserve_percent=10 \
-  -L planD-data
+  -L rootfs
 
 # ---------------------------------------------------------------------------
 # Verify the format took, then mount and sanity-check

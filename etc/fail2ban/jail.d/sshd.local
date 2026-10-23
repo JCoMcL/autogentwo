@@ -1,7 +1,3 @@
-# Local fail2ban overrides for planD (Gentoo/OpenRC).
-# Loaded after /etc/fail2ban/jail.conf; every key below overrides it.
-# See: fail2ban-setup.md in this repo for the full rationale.
-
 [DEFAULT]
 
 # No systemd and no pyinotify on this host, so read the log by polling.
