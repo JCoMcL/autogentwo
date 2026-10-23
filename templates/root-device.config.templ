@@ -1,3 +1,2 @@
 CONFIG_CMDLINE_BOOL=y
-CONFIG_CMDLINE="root=PARTUUID=$(findmnt -n -o PARTUUID --target /mnt/gentoo/)"
-
+CONFIG_CMDLINE="root=UUID=$("$script_dir/fs-uuid.sh" /mnt/gentoo)"

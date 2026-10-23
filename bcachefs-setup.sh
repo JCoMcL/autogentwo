@@ -147,10 +147,16 @@ bcachefs show-super /dev/sdb | grep -iE \
 
 UUID=$(bcachefs show-super /dev/sdb | awk '/^External UUID:/ {print $3}')
 echo "filesystem UUID: $UUID"
+# Every member device carries this same filesystem UUID, so it is also what
+# the kernel needs for root=/etc/fstab. A multi-device bcachefs filesystem has
+# no single PARTUUID to point at, and per-device UUIDs (UUID_SUB) identify only
+# one member.
 # Record this for /etc/fstab:
 #   UUID=$UUID  /data  bcachefs  defaults  0  0
-# Before it mounts at boot, bcachefs must be in /etc/conf.d/modules so the
-# module is loaded ahead of localmount, and fsck.bcachefs wired into `fsck`.
+# At boot, userspace does the device discovery: the initramfs must contain
+# mount.bcachefs (the bcachefs-tools dracut config only adds the kernel
+# module). If bcachefs is a module, also list it in /etc/conf.d/modules so it
+# loads before localmount, and wire fsck.bcachefs into `fsck`.
 
 mkdir -p /mnt/bcfs-test
 mount -t bcachefs "UUID=$UUID" /mnt/bcfs-test

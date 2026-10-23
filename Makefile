@@ -25,11 +25,14 @@ etc/portage/make.conf/00-mirrorselect.conf:
 /mnt/gentoo/etc: stage3.tar.xz
 	#tar xpvf $< --xattrs-include='*.*' --numeric-owner --overwrite -C /mnt/gentoo >/dev/null
 	#rsync -r etc/ $@
-	scripts/templ.sh templates/root-device.config.templ > /mnt/gentoo/etc/kernel/root-device.config #TODO, template invocation should be automatic
+	mkdir -p $@/kernel/config.d $@/dracut.conf.d
+	scripts/templ.sh templates/root-device.config.templ > $@/kernel/config.d/root-device.config #TODO, template invocation should be automatic
+	scripts/templ.sh templates/dracut-cmdline.templ > $@/dracut.conf.d/zz-bcachefs-cmdline.conf
+	cp etc/dracut.conf.d/bcachefs.conf $@/dracut.conf.d/bcachefs.conf
 	scripts/templ.sh templates/00-auto-hardware.templ > /mnt/gentoo/etc/portage/package.use/00-auto-hardware
 	cp --no-target-directory --dereference -r /etc/resolv.conf $@/resolv.conf
 	cp world /mnt/gentoo/var/lib/portage/world
-	genfstab -U /mnt/gentoo > /mnt/gentoo/etc/fstab
+	scripts/genfstab.sh /mnt/gentoo > /mnt/gentoo/etc/fstab
 
 stage3.tar.xz:
 	scripts/download-files.sh "http://distfiles.gentoo.org/releases/$(GENTOO_ARCH)/autobuilds/current-stage3-$(GENTOO_ARCH)-openrc" asc xz sha256
