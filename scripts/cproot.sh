@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 #
 # Copy whole filesystems off disks into $TARGET_ROOT, one directory per source
 # partition. Each source is mounted via udisks, rsync'd inside a dtach session
@@ -6,7 +6,7 @@
 #
 # usage: cproot.sh [--archive] [-n|--dry-run] [--] DEVICE...
 
-set -e
+set -eu
 
 err() {
 	echo "[0m[31m$@[0m" >&2
@@ -86,22 +86,20 @@ _cproot() {
 
 	SOURCE="$(mount_disk "$1")"
 
-	set -x
-	if test $ARCHIVE
+	if test -v ARCHIVE
 	then DEST="$TARGET_ROOT/archive/$(disk_name "$1")"
 	else DEST="$TARGET_ROOT"
 	fi
 
-	EXCLUDE="$(exclude /proc/ /sys/ /dev/ /run/ /swapfile)"
+	EXCLUDE="$(exclude /proc/ /sys/ /dev/ /run/ /swapfile /var/cache/)"
 
 	[ "$(mountpoint_of "$TARGET_ROOT")" != "$SOURCE" ] || die "$TARGET_ROOT is on $1 itself"
 
 	mkdir -p "$DEST"
-	set -xu
-	dtach -A "/tmp/rsync-$(basename "$DEST").dtach" \
+	set -x #FIXME: this doesn't do what I thought it does
 	rsync -aHAX --one-file-system --partial --sparse --progress \
 		$EXTRA_RSYNC_OPTS $EXCLUDE "$SOURCE/" "$DEST/"
-	set +xu
+	set +x
 
 	cleanup
 }
@@ -109,6 +107,13 @@ _cproot() {
 TARGET_ROOT="/mnt/gentoo"
 EXTRA_RSYNC_OPTS=""
 ARCHIVE=
+
+if test "$1" = "--dtach"; then
+	shift
+	set -eu
+	exec dtach -A "/tmp/rsync-$(basename "${@: -1}").dtach" $0 $@
+fi
+
 
 while [ $# -gt 0 ]; do
 	case "$1" in
@@ -119,8 +124,16 @@ while [ $# -gt 0 ]; do
 			set +u
 			shift
 			;;
+		--dtach)
+			die "--dtach must be the first argument or it will not work as you expect"
+			;;
 		--archive)
 			ARCHIVE=y
+			shift
+			;;
+		--throttle)
+			# Vital if you're copying an active root_fs from a crappy USB stick
+			EXTRA_RSYNC_OPTS="$EXTRA_RSYNC_OPTS --bwlimit=1M"
 			shift
 			;;
 		-n|--dry-run)
