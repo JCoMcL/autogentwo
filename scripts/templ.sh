@@ -10,11 +10,11 @@ warn() {
 }
 
 script_dir() {
-	$(dirname $(which $0))
+	dirname $(which $0)
 }
 
 eval_template() {
-	export PATH="$(script_dir):$PATH"
+	local PATH="$(script_dir):$PATH"
 	eval "cat <<__TEMPLATE_EOF__
 $(cat "$1")
 __TEMPLATE_EOF__"
@@ -35,10 +35,10 @@ is_template() {
 }
 
 render_template() {
-	out=${1%.templ}
 	if ! is_template "$1"
 	then die "$1 does not look like a template"
 	fi
+	out=${1%.templ}
 
 	if test -f $out; then
 		if test NO_CLOBBER
@@ -49,13 +49,20 @@ render_template() {
 	eval_template "$1" > "$out"
 }
 
-echo $0
+render_dir() {
+	find "$1" -name '*.templ' | while IFS= read -r templ
+	do render_template "$templ"
+	done
+}
+
 NO_CLOBBER=
 if test "$#" -gt 0; then
-
 	for f in "$@"; do
-		eval_template "$f"
+		if test -d "$f"
+		then render_dir "$f"
+		else eval_template "$f"
+		fi
 	done
-elif test -e /dev/stdin
-	then eval_template /dev/stdin
+else
+	eval_template /dev/stdin
 fi
