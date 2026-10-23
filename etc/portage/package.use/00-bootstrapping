@@ -1,0 +1,3 @@
+# removes a bunch of use flags which make the the intial setup take way longer
+sys-apps/hwloc -X -cpuid -cpi
+sys-apps/systemd-utils -boot 
