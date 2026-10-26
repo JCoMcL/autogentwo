@@ -40,6 +40,8 @@ if command -v doas; then set -x
 		then mv /etc/doas.conf /etc/doas.conf.old
 	fi
 
+	mv /etc/doas.conf.new /etc/doas.conf
+
 	ln -sfn doas /usr/bin/sudo
 
 	set +x
