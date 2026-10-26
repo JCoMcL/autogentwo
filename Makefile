@@ -14,7 +14,7 @@ update:
 	#TODO assert /mnt/gentoo is another disk or partition
 	tar xpvf $< --xattrs-include='*.*' --numeric-owner --overwrite -C /mnt/gentoo >/dev/null
 
-/mnt/gentoo/etc/hostname: /mnt/gentoo/etc
+/mnt/gentoo/etc/hostname: | /mnt/gentoo/etc/
 	rsync -r etc/ $<
 	scripts/templ.sh $<
 	cp --no-target-directory --dereference -r /etc/resolv.conf $</resolv.conf
@@ -22,7 +22,7 @@ update:
 	scripts/genfstab.sh /mnt/gentoo > /mnt/gentoo/etc/fstab
 	head -1 > $@ # ENTER YOUR NEW HOSTNAME
 
-/mnt/gentoo/root/autogentwo:
+/mnt/gentoo/root/autogentwo: .
 	mkdir -p $@
 	cp -r . /mnt/gentoo/root/autogentwo
 

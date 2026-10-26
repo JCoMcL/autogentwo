@@ -25,7 +25,7 @@ USER_GROUPS="wheel adm admin audio pipewire video input render lp lpadmin kvm us
 
 set -x
 for g in $USER_GROUPS; do
-	usermod --append --groups $g
+	usermod $USERNAME --append --groups $g
 done
 set +x
 
