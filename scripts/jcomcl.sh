@@ -48,10 +48,11 @@ elif command -v sudo; then
 	# note whether the system uses "admin" "adm" or "wheel" needs to be figured out
 fi
 
-if test -f /etc/inittab
-sed -i -E "s|(^c1:.*/sbin/agetty)(.*[[:space:]]tty1[[:space:]])|\1 --autologin $USERNAME\2|" \
+if test -f /etc/inittab; then
+	sed -i -E "s|(^c1:.*/sbin/agetty)(.*[[:space:]]tty1[[:space:]])|\1 --autologin $USERNAME\2|" \
 	/etc/inittab
-grep -E "[[:space:]]tty1[[:space:]]" /etc/inittab
+	grep -E "[[:space:]]tty1[[:space:]]" /etc/inittab
+fi
 
 if command -v yadm; then
 	su - "$USERNAME" -s /bin/sh -c "yadm clone --no-bootstrap $DOTFILES"

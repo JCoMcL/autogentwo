@@ -21,13 +21,7 @@ __TEMPLATE_EOF__"
 }
 
 is_template() {
-	case "$1" in
-		*.templ)
-			;;
-		*)
-			return 1
-	esac
-	out=${1%.templ}
+	out=${1%.templ*}
 	if test -z "$out" || test "$1" = "$out"
 	then return 1
 	fi
@@ -38,10 +32,10 @@ render_template() {
 	if ! is_template "$1"
 	then die "$1 does not look like a template"
 	fi
-	out=${1%.templ}
+	out=${1%.templ*}
 
 	if test -f $out; then
-		if test NO_CLOBBER
+		if test $NO_CLOBBER
 		then die $out already exists
 		else warn overwriting $out
 		fi
@@ -60,7 +54,7 @@ if test "$#" -gt 0; then
 	for f in "$@"; do
 		if test -d "$f"
 		then render_dir "$f"
-		else eval_template "$f"
+		else render_template "$f"
 		fi
 	done
 else

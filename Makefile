@@ -10,14 +10,27 @@ update:
 	rsync -r /etc/udev etc/udev
 	cp /var/lib/portage/world world
 
-.PHONY: /mnt/gentoo/etc
-/mnt/gentoo/etc: stage3.tar.xz
-	#tar xpvf $< --xattrs-include='*.*' --numeric-owner --overwrite -C /mnt/gentoo >/dev/null
-	rsync -r etc/ $@
-	scripts/templ.sh $@
-	cp --no-target-directory --dereference -r /etc/resolv.conf $@/resolv.conf
+/mnt/gentoo/etc: stage3.tar.xz /mnt/gentoo/
+	#TODO assert /mnt/gentoo is another disk or partition
+	tar xpvf $< --xattrs-include='*.*' --numeric-owner --overwrite -C /mnt/gentoo >/dev/null
+
+/mnt/gentoo/etc/hostname: /mnt/gentoo/etc
+	rsync -r etc/ $<
+	scripts/templ.sh $<
+	cp --no-target-directory --dereference -r /etc/resolv.conf $</resolv.conf
 	cp world /mnt/gentoo/var/lib/portage/world
 	scripts/genfstab.sh /mnt/gentoo > /mnt/gentoo/etc/fstab
+	head -1 > $@ # ENTER YOUR NEW HOSTNAME
+
+/mnt/gentoo/root/autogentwo:
+	mkdir -p $@
+	cp -r . /mnt/gentoo/root/autogentwo
+
+.PHONY: finalize
+finalize: /mnt/gentoo/root/autogentwo /mnt/gentoo/etc/hostname
+	arch-chroot /mnt/gentoo/ /root/autogentwo/scripts/finalize.sh
+	arch-chroot /mnt/gentoo/ /root/autogentwo/scripts/services.sh
+	arch-chroot /mnt/gentoo/ /root/autogentwo/scripts/jcomcl.sh
 
 stage3.tar.xz:
 	scripts/download-files.sh "http://distfiles.gentoo.org/releases/$(GENTOO_ARCH)/autobuilds/current-stage3-$(GENTOO_ARCH)-openrc" asc xz sha256
